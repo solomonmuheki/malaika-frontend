@@ -20,7 +20,7 @@ import {
 } from '@fortawesome/free-solid-svg-icons';
 import Newsfeed from '../components/Newsfeed';
 import { Link, Route, Switch } from 'react-router-dom';
-import Admin from '../layouts/Admin';
+import Admin from './Admin';
 
 library.add(faEnvelope, faKey, faBars, faPhone, faAngleRight);
 

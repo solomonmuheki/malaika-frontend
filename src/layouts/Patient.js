@@ -23,13 +23,14 @@ import { Route, Switch } from 'react-router-dom';
 
 import DemoNavbar from '../components/Navbars/DemoNavbar.jsx';
 import Footer from '../components/Footer/Footer.jsx';
-import Sidebar from '../components/Sidebar/Sidebar.jsx';
+import PatientSidebar from '../components/Sidebar/PatientSidebar';
 //import FixedPlugin from "components/FixedPlugin/FixedPlugin.jsx";
 import FixedPlugin from '../components/FixedPlugin/FixedPlugin';
+import Community from '../views/Community';
+import DoctorsProfile from '../views/DoctorsProfile';
 
-//import routes from 'routes.js';
-import routes from '../routes';
-//import routesPatient from '../routing/patientRoutes';
+import patientRoutes from '../routing/patientRoutes';
+import ChangePassword from '../views/ChangePassword.js';
 
 var ps;
 
@@ -69,16 +70,16 @@ class Dashboard extends React.Component {
   render() {
     return (
       <div className="wrapper">
-        <Sidebar
+        <PatientSidebar
           {...this.props}
-          routes={routes}
+          patientRoutes={patientRoutes}
           bgColor={this.state.backgroundColor}
           activeColor={this.state.activeColor}
         />
         <div className="main-panel" ref={this.mainPanel}>
           <DemoNavbar {...this.props} />
           <Switch>
-            {routes.map((prop, key) => {
+            {patientRoutes.map((prop, key) => {
               return (
                 <Route
                   path={prop.layout + prop.path}
@@ -87,6 +88,16 @@ class Dashboard extends React.Component {
                 />
               );
             })}
+
+            <Route path="/patient/community" render={props => <Community />} />
+            <Route
+              path="/patient/change-password"
+              render={props => <ChangePassword />}
+            />
+            <Route
+              path="/patient/doctorprofile"
+              render={props => <DoctorsProfile />}
+            />
           </Switch>
           <Footer fluid />
         </div>

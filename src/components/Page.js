@@ -8,14 +8,19 @@ class Page extends React.Component {
     return (
       <div>
         <div className="container">
-          <h3>Health Tips</h3>
-          <div className="row pad">
+          <h3>Join Community</h3>
+          <div className="row pad-2">
             <div className="col-sm-12 col-md-6 col-lg-3 ">
               <div className="row dis-box">
                 <div className="col-3 col-sm-4 col-md-12 col-lg-12 leg3">
-                  <img src={dis} className="img-responsive dis-img" alt="img" />
+                  <div className="pad3">
+                    <img
+                      src={dis}
+                      className="img-responsive dis-img"
+                      alt="img"
+                    />
 
-                  {/* <Visible xs sm>
+                    {/* <Visible xs sm>
                     <img
                       src={dis}
                       height="40px"
@@ -23,6 +28,7 @@ class Page extends React.Component {
                       alt="banner"
                     />
                   </Visible> */}
+                  </div>
                 </div>
                 <div className="col-9 col-sm-8 col-md-12 col-lg-12 dis-name">
                   <h3 className="myp">

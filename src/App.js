@@ -27,22 +27,40 @@ import {
   faKey,
   faBars,
   faPhone,
-  faAngleRight
+  faAngleRight,
+  faCalendarAlt,
+  faComment,
+  faUserFriends
 } from '@fortawesome/free-solid-svg-icons';
 import Newsfeed from './components/Newsfeed';
 
 import Home from './layouts/Home';
 import Admin from './layouts/Admin';
+import Patient from './layouts/Patient';
 import Login from './pages/Login';
-//import { routes } from './routes';
-import routes from './routes';
+import Logino from './pages/Login1';
+import Signup from './pages/Signup';
+import ForgotPassword from './pages/ForgotPassword';
+import ChangePassword from './pages/ChangePassword';
+// import { patientRoutes } from './routing/patientRoutes';
+// import routes from './routes';
 
-library.add(faEnvelope, faKey, faBars, faPhone, faAngleRight);
+library.add(
+  faEnvelope,
+  faKey,
+  faBars,
+  faPhone,
+  faAngleRight,
+  faCalendarAlt,
+  faComment,
+  faUserFriends
+);
 const hist = createBrowserHistory();
 function App() {
-  const routeComponents = routes.map(({ path, component }, key) => (
-    <Route exact path={path} component={component} key={key} />
-  ));
+  // const routeComponents = routes.map(({ path, component }, key) => (
+  //   <Route exact path={path} component={component} key={key} />
+  // ));
+
   return (
     <Router>
       <div>
@@ -67,52 +85,54 @@ function App() {
               </React.Fragment>
             )}
           />
+          <Route
+            path="/login1"
+            render={props => (
+              <React.Fragment>
+                <Navigationmenu />
+                <Logino />
+              </React.Fragment>
+            )}
+          />
+          <Route
+            path="/signup"
+            render={props => (
+              <React.Fragment>
+                <Navigationmenu />
+                <Signup />
+              </React.Fragment>
+            )}
+          />
+          <Route
+            path="/forgot-password"
+            render={props => (
+              <React.Fragment>
+                <Navigationmenu />
+                <ForgotPassword />
+              </React.Fragment>
+            )}
+          />
+          <Route
+            path="/change-Password"
+            render={props => (
+              <React.Fragment>
+                <Navigationmenu />
+                <ChangePassword />
+              </React.Fragment>
+            )}
+          />
+          <Route path="/patient" render={props => <Patient {...props} />} />
 
           <Route
-            path="/admin/dashboard"
-            render={props => <Admin {...props} />}
+            path="/patient"
+            render={() => <Redirect to="/patient/dashboard" />}
           />
-          {/* <Redirect to="/admin/dashboard" /> */}
+          <Route path="/admin" render={props => <Admin {...props} />} />
+          <Redirect to="/admin/dashboard" />
         </Switch>
       </div>
     </Router>
-    // <Router>
-    // <div>
-    //   <Navigationmenu />
-    /* <Navigationmenu />
-        <Banner />
-        <Newsfeed />
-        <Page />
-        <Emmergency />
-        <Footer /> */
-    /* <Switch>
-          {routes.map((route, i) => (
-            <RouteWithSubRoutes key={i} {...route} />
-          ))}
-      </Switch> */
+  );
+}
 
-    //   <BrowserRouter>
-    //     <div>{routeComponents}</div>
-    //   </BrowserRouter>
-    // </div>
-    // </Router>
-  );
-}
-// const RouteWithSubRoutes = route => (
-//   <Route
-//     path={route.path}
-//     render={props => <route.component {...props} routes={route.routes} />}
-//   />
-// );
-function RouteWithSubRoutes(route) {
-  return (
-    <Route
-      path={route.path}
-      render={props => (
-        // pass the sub-routes down to keep nesting
-        <route.component {...props} routes={route.routes} />
-      )}
-    />
-  );
-}
 export default App;

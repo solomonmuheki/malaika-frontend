@@ -27,7 +27,7 @@ import logo from '../../logo.svg';
 
 var ps;
 
-class Sidebar extends React.Component {
+class PatientSidebar extends React.Component {
   constructor(props) {
     super(props);
     this.activeRoute.bind(this);
@@ -63,9 +63,10 @@ class Sidebar extends React.Component {
               <img src={logo} alt="react-logo" />
             </div>
           </NavLink>
+
           <NavLink
             to="/home"
-            className="simple-text logo-normal nav-link"
+            className="simple-text logo-normal  navlink"
             exact
           >
             Malaikah
@@ -73,7 +74,7 @@ class Sidebar extends React.Component {
         </div>
         <div className="sidebar-wrapper" ref={this.sidebar}>
           <Nav>
-            {this.props.routes.map((prop, key) => {
+            {this.props.patientRoutes.map((prop, key) => {
               return (
                 <li
                   className={
@@ -88,7 +89,7 @@ class Sidebar extends React.Component {
                     activeClassName="active"
                   >
                     <i className={prop.icon} />
-                    <p>{prop.name}</p>
+                    <p className="navlink">{prop.name}</p>
                   </NavLink>
                 </li>
               );
@@ -100,4 +101,4 @@ class Sidebar extends React.Component {
   }
 }
 
-export default Sidebar;
+export default PatientSidebar;

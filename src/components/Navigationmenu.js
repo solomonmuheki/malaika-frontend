@@ -86,10 +86,15 @@ class Navigationmenu extends React.Component {
               </li>
             </ul>
             <ul className="nav navbar-nav ml-auto">
-              <li className="nav-item active">
-                <a className="nav-link" href="#">
-                  Home <span className="sr-only">(current)</span>
-                </a>
+              <li className="nav-item ">
+                <NavLink
+                  to="/home"
+                  className="nav-link"
+                  exact
+                  activeStyle={{ color: 'green' }}
+                >
+                  Home
+                </NavLink>
               </li>
               <li className="nav-item">
                 <a className="nav-link" href="#">
@@ -97,16 +102,39 @@ class Navigationmenu extends React.Component {
                 </a>
               </li>
               <li className="nav-item">
-                <NavLink to="/login" exact activeStyle={{ color: 'green' }}>
+                <NavLink
+                  to="/login"
+                  className="nav-link"
+                  exact
+                  activeStyle={{ color: 'green' }}
+                >
                   Login
                 </NavLink>
               </li>
-
               <li className="nav-item">
-                <Link to="/home">Tacos</Link>
+                <NavLink
+                  to="/signup"
+                  className="nav-link"
+                  exact
+                  activeStyle={{ color: 'green' }}
+                >
+                  Register
+                </NavLink>
               </li>
               <li className="nav-item">
-                <Link to="/admin/dashboard">Dashboard</Link>
+                <NavLink
+                  to="/patient/dashboard"
+                  className="nav-link"
+                  exact
+                  activeStyle={{ color: 'green' }}
+                >
+                  Patient
+                </NavLink>
+              </li>
+              <li className="nav-item">
+                <Link to="/admin/dashboard" className="nav-link">
+                  Dashboard
+                </Link>
               </li>
             </ul>
           </div>

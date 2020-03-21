@@ -24,6 +24,10 @@ import Typography from './views/Typography.jsx';
 import TableList from './views/Tables.jsx';
 import Maps from './views/Map.jsx';
 import UserPage from './views/User.jsx';
+import DoctorsProfile from './views/DoctorsProfile';
+import AllDoctors from './views/AllDoctors';
+import PatientHomePage from './views/PatientHomePage';
+import Consultation from './views/Consultation';
 import UpgradeToPro from './views/Upgrade.jsx';
 import Admin from './layouts/Admin';
 import App from './App';
@@ -34,15 +38,60 @@ import Home from './layouts/Home';
 //     component: Admin,
 //     exact: true
 //   },
-// {
-//   path: '/',
-//   component: Home
-// },
-// {
-//   path: '/admin',
-//   component: Admin
-// },
-
+//   {
+//     path: '/',
+//     component: Home
+//   },
+//   {
+//     path: '/admin',
+//     component: Admin
+//   }
+// ];
+// export const routesHome = [
+//   {
+//     path: '/dashboard',
+//     name: 'Dashboard',
+//     icon: 'nc-icon nc-bank',
+//     component: Dashboard,
+//     layout: '/admin'
+//   },
+//   {
+//     path: '/dashboard',
+//     name: 'Dashboard',
+//     icon: 'nc-icon nc-bank',
+//     component: Dashboard,
+//     layout: '/admin'
+//   },
+//   {
+//     path: '/doctors',
+//     name: 'Doctors',
+//     icon: 'nc-icon nc-bank',
+//     component: AllDoctors,
+//     layout: '/admin'
+//   }
+// ];
+// export const routesPatient = [
+//   {
+//     path: '/dashboard',
+//     name: 'Dashboard',
+//     icon: 'nc-icon nc-bank',
+//     component: Dashboard,
+//     layout: '/admin'
+//   },
+//   {
+//     path: '/dashboard',
+//     name: 'Dashboard',
+//     icon: 'nc-icon nc-bank',
+//     component: Dashboard,
+//     layout: '/admin'
+//   },
+//   {
+//     path: '/doctors',
+//     name: 'Doctors',
+//     icon: 'nc-icon nc-bank',
+//     component: AllDoctors,
+//     layout: '/admin'
+//   }
 // ];
 var routes = [
   {
@@ -50,6 +99,35 @@ var routes = [
     name: 'Dashboard',
     icon: 'nc-icon nc-bank',
     component: Dashboard,
+    layout: '/admin'
+  },
+
+  {
+    path: '/doctors',
+    name: 'Doctors',
+    icon: 'nc-icon nc-bank',
+    component: AllDoctors,
+    layout: '/admin'
+  },
+  {
+    path: '/patient',
+    name: 'Patient',
+    icon: 'nc-icon nc-bank',
+    component: PatientHomePage,
+    layout: '/admin'
+  },
+  {
+    path: '/doctors_profile',
+    name: 'Doctor Profile',
+    icon: 'nc-icon nc-spaceship',
+    component: DoctorsProfile,
+    layout: '/admin'
+  },
+  {
+    path: '/consultation',
+    name: 'Consultation',
+    icon: 'nc-icon nc-spaceship',
+    component: Consultation,
     layout: '/admin'
   },
   {

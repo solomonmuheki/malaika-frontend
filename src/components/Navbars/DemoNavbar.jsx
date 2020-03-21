@@ -151,16 +151,6 @@ class Header extends React.Component {
             navbar
             className="justify-content-end"
           >
-            <form>
-              <InputGroup className="no-border">
-                <Input placeholder="Search..." />
-                <InputGroupAddon addonType="append">
-                  <InputGroupText>
-                    <i className="nc-icon nc-zoom-split" />
-                  </InputGroupText>
-                </InputGroupAddon>
-              </InputGroup>
-            </form>
             <Nav navbar>
               <NavItem>
                 <Link to="#pablo" className="nav-link btn-magnify">
@@ -176,25 +166,18 @@ class Header extends React.Component {
                 toggle={e => this.dropdownToggle(e)}
               >
                 <DropdownToggle caret nav>
-                  <i className="nc-icon nc-bell-55" />
-                  <p>
-                    <span className="d-lg-none d-md-block">Some Actions</span>
-                  </p>
+                  <i className="nc-icon nc-single-02" />
                 </DropdownToggle>
                 <DropdownMenu right>
-                  <DropdownItem tag="a">Action</DropdownItem>
-                  <DropdownItem tag="a">Another Action</DropdownItem>
-                  <DropdownItem tag="a">Something else here</DropdownItem>
+                  <Link to="/patient/user-page">
+                    <DropdownItem tag="a">Your Profile</DropdownItem>{' '}
+                  </Link>
+                  <Link to="/patient/change-password" className="dropdown-link">
+                    <DropdownItem tag="a">Change Password</DropdownItem>
+                  </Link>
+                  <DropdownItem tag="a">Sign Out</DropdownItem>
                 </DropdownMenu>
               </Dropdown>
-              <NavItem>
-                <Link to="#pablo" className="nav-link btn-rotate">
-                  <i className="nc-icon nc-settings-gear-65" />
-                  <p>
-                    <span className="d-lg-none d-md-block">Account</span>
-                  </p>
-                </Link>
-              </NavItem>
             </Nav>
           </Collapse>
         </Container>

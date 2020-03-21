@@ -8,7 +8,7 @@ class Newsfeed extends React.Component {
             <div className="col-lg-4 col-md-5 col-sm-12 news-heading-pad2">
               <span>Statistics: </span>
               <span
-                className="btn btn-info btn-sm pad"
+                className="btn btn-success btn-sm pad"
                 data-toggle="tooltip"
                 data-placement="top"
                 title="Total Number of Patients Registered"
@@ -16,7 +16,7 @@ class Newsfeed extends React.Component {
                 100
               </span>
               <span
-                className="btn btn-info btn-sm pad"
+                className="btn btn-success btn-sm pad"
                 data-toggle="tooltip"
                 data-placement="top"
                 title="Number of Patients served"
@@ -24,7 +24,7 @@ class Newsfeed extends React.Component {
                 056
               </span>
               <span
-                className="btn btn-info btn-sm pad"
+                className="btn btn-success btn-sm pad"
                 data-toggle="tooltip"
                 data-placement="top"
                 title="Emmergency Cases"
@@ -40,7 +40,7 @@ class Newsfeed extends React.Component {
             <div className="col-lg-8 col-md-7 col-sm-12 leg1">
               <div className="row">
                 <div className="col-lg-3 col-md-12 col-sm-12 news-heading-pad">
-                  <span className="news-heading">Latest News</span>
+                  <span className=" news-heading">Latest News</span>
                 </div>
                 <div className="col-lg-9 col-md-12 col-sm-12 ">
                   <div className="news white">
