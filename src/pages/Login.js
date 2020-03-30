@@ -42,7 +42,14 @@ function Login(props) {
       })
       .then(response => {
         setLoading(false);
-        setUserSession(response.data.access_token, response.data.name);
+        setUserSession(
+          response.data.access_token,
+          response.data.fname,
+          response.data.user_id
+        );
+        localStorage.setItem('access_token', response.data.access_token);
+        localStorage.setItem('userId', response.data.user_id);
+        localStorage.setItem('firstName', response.data.fname);
         // props.history.push('/patient/dashboard');
 
         history.push('/patient/dashboard');

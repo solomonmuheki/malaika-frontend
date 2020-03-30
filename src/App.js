@@ -42,6 +42,7 @@ import Logino from './pages/Login1';
 import Signup from './pages/Signup';
 import ForgotPassword from './pages/ForgotPassword';
 import ChangePassword from './pages/ChangePassword';
+import Form from './views/Form';
 // import { patientRoutes } from './routing/patientRoutes';
 // import routes from './routes';
 
@@ -91,6 +92,15 @@ function App() {
               <React.Fragment>
                 <Navigationmenu />
                 <Logino />
+              </React.Fragment>
+            )}
+          />
+          <Route
+            path="/form"
+            render={props => (
+              <React.Fragment>
+                <Navigationmenu />
+                <Form />
               </React.Fragment>
             )}
           />

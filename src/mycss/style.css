@@ -1003,6 +1003,14 @@ Register
   padding: 10px 0;
   margin: auto;
 }
+.err {
+  font-size: small;
+  color: red;
+}
+.asterisk {
+  font-size: small;
+  color: red;
+}
 
 /*=================
 Doctor Details
@@ -1290,13 +1298,13 @@ textarea.border1 {
 .checkbox-label input:checked ~ .checkbox-custom.circular::before {
   border-radius: 50%;
 } */
-input[type='radio'] {
+/* input[type='radio'] {
   display: none;
 }
 input[type='radio'] + label {
   font-weight: 400;
   font-size: 16px;
-}
+} */
 input[type='radio'] + label span {
   display: inline-block;
   width: 28px;
@@ -1485,4 +1493,9 @@ input[type='radio']:checked + label span {
   .register-heading {
     margin-top: 17%;
   }
+}
+.showError {
+  border-color: #a94442 !important;
+  color: #a94442 !important;
+  margin-bottom: 15px;
 }

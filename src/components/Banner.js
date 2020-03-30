@@ -45,7 +45,7 @@ class Banner extends React.Component {
                         <div className="row">
                           <div className="col-lg-6 col-md-6 col-sm-12">
                             <NavLink
-                              to="/patient/home"
+                              to="/patient/dashboard"
                               className="btn btn-success btn-block btn-lg"
                             >
                               Request Doctor
