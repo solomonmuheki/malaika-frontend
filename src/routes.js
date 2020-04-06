@@ -26,12 +26,14 @@ import Maps from './views/Map.jsx';
 import UserPage from './views/User.jsx';
 import DoctorsProfile from './views/DoctorsProfile';
 import AllDoctors from './views/AllDoctors';
+import CreateCommunity from './views/CreateCommunity';
 import PatientHomePage from './views/PatientHomePage';
 import Consultation from './views/Consultation';
 import UpgradeToPro from './views/Upgrade.jsx';
 import Admin from './layouts/Admin';
 import App from './App';
 import Home from './layouts/Home';
+import CommunityList from './views/CommunityList';
 // export const routesHome = [
 //   {
 //     path: '/',
@@ -156,6 +158,20 @@ var routes = [
     name: 'User Profile',
     icon: 'nc-icon nc-single-02',
     component: UserPage,
+    layout: '/admin'
+  },
+  {
+    path: '/create-community',
+    name: 'Create Community',
+    icon: 'nc-icon nc-single-02',
+    component: CreateCommunity,
+    layout: '/admin'
+  },
+  {
+    path: '/communities',
+    name: 'Community list',
+    icon: 'nc-icon nc-single-02',
+    component: CommunityList,
     layout: '/admin'
   },
   {

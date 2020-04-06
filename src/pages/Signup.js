@@ -1,5 +1,6 @@
 import React from 'react';
-
+import { toast } from 'react-toastify';
+import { useHistory } from 'react-router';
 import '../mycss/style.css';
 import Banner from '../components/Banner';
 import { library } from '@fortawesome/fontawesome-svg-core';
@@ -9,7 +10,7 @@ import {
   NavLink,
   Switch,
   Redirect,
-  BrowserRouter as Router
+  BrowserRouter as Router,
 } from 'react-router-dom';
 import ReactSelect from 'react-select';
 
@@ -19,7 +20,7 @@ import {
   faKey,
   faBars,
   faPhone,
-  faAngleRight
+  faAngleRight,
 } from '@fortawesome/free-solid-svg-icons';
 import { Label } from 'reactstrap';
 import FormValidator from '../FormValidator';
@@ -43,7 +44,7 @@ class Signup extends React.Component {
         image: null,
         address: '',
         region: '',
-        dob: ''
+        dob: '',
       },
       registerDoctorForm: {
         fname: '',
@@ -60,7 +61,7 @@ class Signup extends React.Component {
         image: null,
         address: '',
         region: '',
-        dob: ''
+        dob: '',
       },
       role: 'patient',
       docRole: 'doctor',
@@ -78,7 +79,7 @@ class Signup extends React.Component {
         image: null,
         address: '',
         region: '',
-        dob: ''
+        dob: '',
       },
       docFormErrors: {
         fname: null,
@@ -95,25 +96,25 @@ class Signup extends React.Component {
         image: null,
         address: '',
         region: '',
-        dob: ''
-      }
+        dob: '',
+      },
     };
     this.countryList = [
       { value: 'uganda', label: 'Uganda' },
       { value: 'nigeria', label: 'Nigeria' },
       { value: 'india', label: 'India' },
       { value: 'us', label: 'US' },
-      { value: 'australia', label: 'Australia' }
+      { value: 'australia', label: 'Australia' },
     ];
     this.languageList = [
       { value: 'english', label: 'English' },
       { value: 'hindi', label: 'Hindi' },
       { value: 'spanish', label: 'Spanish' },
-      { value: 'arabic', label: 'Arabic' }
+      { value: 'arabic', label: 'Arabic' },
     ];
   }
 
-  validateNumber = evt => {
+  validateNumber = (evt) => {
     var theEvent = evt || window.event;
 
     // Handle paste
@@ -131,7 +132,7 @@ class Signup extends React.Component {
     }
   };
 
-  handleChange = e => {
+  handleChange = (e) => {
     const { name, value, checked } = e.target;
     const { form, formErrors } = this.state;
     let formObj = {};
@@ -146,14 +147,14 @@ class Signup extends React.Component {
         // remove unchecked value from the list
         formObj = {
           ...form,
-          [name]: form[name].filter(x => x !== value)
+          [name]: form[name].filter((x) => x !== value),
         };
       }
     } else {
       // handle change event except language field
       formObj = {
         ...form,
-        [name]: value
+        [name]: value,
       };
     }
     this.setState({ form: formObj }, () => {
@@ -179,7 +180,7 @@ class Signup extends React.Component {
       this.setState({ formErrors: formErrorsObj });
     });
   };
-  handleDocChange = e => {
+  handleDocChange = (e) => {
     const { name, value, checked } = e.target;
     const { registerDoctorForm, docFormErrors } = this.state;
     let formObj = {};
@@ -194,14 +195,14 @@ class Signup extends React.Component {
         // remove unchecked value from the list
         formObj = {
           ...registerDoctorForm,
-          [name]: registerDoctorForm[name].filter(x => x !== value)
+          [name]: registerDoctorForm[name].filter((x) => x !== value),
         };
       }
     } else {
       // handle change event except language field
       formObj = {
         ...registerDoctorForm,
-        [name]: value
+        [name]: value,
       };
     }
     this.setState({ registerDoctorForm: formObj }, () => {
@@ -367,7 +368,7 @@ class Signup extends React.Component {
 
   validateForm = (form, formErrors, validateFunc) => {
     const errorObj = {};
-    Object.keys(formErrors).map(x => {
+    Object.keys(formErrors).map((x) => {
       let refValue = null;
       if (x === 'password' || x === 'confirmPassword') {
         refValue = form[x === 'password' ? 'confirmPassword' : 'password'];
@@ -379,7 +380,7 @@ class Signup extends React.Component {
   };
   validateDocForm = (registerDoctorForm, docFormErrors, validateFunc) => {
     const errorObj = {};
-    Object.keys(docFormErrors).map(x => {
+    Object.keys(docFormErrors).map((x) => {
       let refValue = null;
       if (x === 'password' || x === 'confirmPassword') {
         refValue =
@@ -417,7 +418,7 @@ class Signup extends React.Component {
     form_data.append('image', this.state.form.image);
     // Display the key/value pairs
     let object = {};
-    form_data.forEach(function(value, key) {
+    form_data.forEach(function (value, key) {
       object[key] = value;
     });
     console.log(object);
@@ -428,13 +429,14 @@ class Signup extends React.Component {
     axios
       .post(url, form_data, {
         headers: {
-          'content-type': 'multipart/form-data'
-        }
+          'content-type': 'multipart/form-data',
+        },
       })
-      .then(res => {
+      .then((res) => {
         console.log(res.data);
+        toast.success(res.message);
       })
-      .catch(err => console.log(err));
+      .catch((err) => console.log(err));
   };
 
   registerDoctor = () => {
@@ -472,7 +474,7 @@ class Signup extends React.Component {
     form_data.append('image', this.state.registerDoctorForm.image);
     // Display the key/value pairs
     let object = {};
-    form_data.forEach(function(value, key) {
+    form_data.forEach(function (value, key) {
       object[key] = value;
     });
     console.log(object);
@@ -480,13 +482,14 @@ class Signup extends React.Component {
     axios
       .post(url, form_data, {
         headers: {
-          'content-type': 'multipart/form-data'
-        }
+          'content-type': 'multipart/form-data',
+        },
       })
-      .then(res => {
+      .then((res) => {
         console.log(res.data);
+        toast.success('hello');
       })
-      .catch(err => console.log(err));
+      .catch((err) => console.log(err));
   };
   // constructor() {
   //   super();
@@ -1114,14 +1117,14 @@ class Signup extends React.Component {
                           name="country"
                           options={this.countryList}
                           value={this.countryList.find(
-                            x => x.value === form.country
+                            (x) => x.value === form.country
                           )}
-                          onChange={e =>
+                          onChange={(e) =>
                             this.handleChange({
                               target: {
                                 name: 'country',
-                                value: e.value
-                              }
+                                value: e.value,
+                              },
                             })
                           }
                         />
@@ -1151,12 +1154,12 @@ class Signup extends React.Component {
                           name="image"
                           placeholder="upload your profile image *"
                           accept="image/png, image/jpeg"
-                          onChange={e =>
+                          onChange={(e) =>
                             this.handleChange({
                               target: {
                                 name: 'image',
-                                value: e.target.files[0]
-                              }
+                                value: e.target.files[0],
+                              },
                             })
                           }
                           required
@@ -1356,14 +1359,14 @@ class Signup extends React.Component {
                           name="country"
                           options={this.countryList}
                           value={this.countryList.find(
-                            x => x.value === form.country
+                            (x) => x.value === form.country
                           )}
-                          onChange={e =>
+                          onChange={(e) =>
                             this.handleDocChange({
                               target: {
                                 name: 'country',
-                                value: e.value
-                              }
+                                value: e.value,
+                              },
                             })
                           }
                         />
@@ -1393,12 +1396,12 @@ class Signup extends React.Component {
                           name="image"
                           placeholder="upload your profile image *"
                           accept="image/png, image/jpeg"
-                          onChange={e =>
+                          onChange={(e) =>
                             this.handleDocChange({
                               target: {
                                 name: 'image',
-                                value: e.target.files[0]
-                              }
+                                value: e.target.files[0],
+                              },
                             })
                           }
                           required

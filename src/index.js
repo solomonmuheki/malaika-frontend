@@ -28,6 +28,8 @@ import Admin from './layouts/Admin';
 import * as serviceWorker from './serviceWorker';
 import routes from './routes';
 import routesHome from './routes';
+import { ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.min.css';
 
 // const routing = (
 //   <BrowserRouter>

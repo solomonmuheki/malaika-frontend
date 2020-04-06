@@ -10,6 +10,9 @@ import {
   BrowserRouter as Router
 } from 'react-router-dom';
 import axios from 'axios';
+
+import { css } from '@emotion/core';
+import PacmanLoader from 'react-spinners/PacmanLoader';
 // reactstrap components
 import {
   Card,
@@ -25,7 +28,8 @@ class Tables extends React.Component {
   state = {
     users: [],
     isLoading: true,
-    errors: null
+    errors: null,
+    loading: true
   };
   getUsers() {
     // We're using axios instead of Fetch
@@ -76,19 +80,26 @@ class Tables extends React.Component {
                   <h5 className="title">All Doctors</h5>
                 </CardHeader>
                 <CardBody>
-                  <div class="container">
+                  <div className="container">
                     <div className="row">
-                      <div className="col-lg-3">
-                        <div className="input-group custom-search-form">
+                      <div className="col-lg-6">
+                        <div className="input-group ">
                           <input type="text" className="form-control" />
-                          <span className="input-group-btn">
-                            <button className="btn btn-default" type="button">
-                              <span className="glyphicon glyphicon-search"></span>
-                            </button>
-                          </span>
+
+                          <button className="btn btn-default" type="button">
+                            <span className="glyphicon glyphicon-search">
+                              Search
+                            </span>
+                          </button>
                         </div>
                       </div>
                     </div>
+                  </div>
+                  <div className="sweet-loading">
+                    <PacmanLoader
+                      color={'#36D7B7'}
+                      loading={this.state.loading}
+                    />
                   </div>
                   {/* <h2>Random User</h2>
                   <div>
@@ -131,7 +142,7 @@ class Tables extends React.Component {
                                     className="img-responsive doc-img"
                                     src={
                                       'http://localhost:8000/uploads/' +
-                                      user.patient.image
+                                      user.image
                                     }
                                   />
                                 </div>

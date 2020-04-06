@@ -8,12 +8,12 @@ import {
   NavLink,
   Switch,
   Redirect,
-  BrowserRouter as Router
+  BrowserRouter as Router,
 } from 'react-router-dom';
 import {
   faLinkedin,
   faFacebook,
-  faTwitter
+  faTwitter,
 } from '@fortawesome/free-brands-svg-icons';
 
 class Navigationmenu extends React.Component {
@@ -45,7 +45,7 @@ class Navigationmenu extends React.Component {
                 </div>
               </div>
               <div className="col-sm-6 col-md-6">
-                <p className="bold text-right">
+                <p className="bold text-right pad-4">
                   <FontAwesomeIcon icon="phone" />
                   +234976766630
                 </p>
@@ -59,7 +59,7 @@ class Navigationmenu extends React.Component {
           </a>
 
           <button
-            className="navbar-toggler"
+            className="navbar-toggler mr-3"
             type="button"
             data-toggle="collapse"
             data-target="#navbarSupportedContent"

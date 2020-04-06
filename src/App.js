@@ -10,6 +10,8 @@ import Footer from './components/Footer';
 import Page from './components/Page';
 //import { Route, Link, NavLink, Switch } from 'react-router-dom';
 //import { BrowserRouter } from 'react-router-dom';
+import 'react-toastify/dist/ReactToastify.min.css';
+import { ToastContainer } from 'react-toastify';
 import {
   Route,
   Link,
@@ -65,6 +67,7 @@ function App() {
   return (
     <Router>
       <div>
+        <ToastContainer />
         <Switch>
           <Route
             exact
